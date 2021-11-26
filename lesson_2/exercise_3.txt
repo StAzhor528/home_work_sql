@@ -1,0 +1,84 @@
+C:\Users\Ivan>mysqldump example > example.sql
+
+C:\Users\Ivan>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 2AA4-7434
+
+ Содержимое папки C:\Users\Ivan
+
+25.11.2021  15:34    <DIR>          .
+25.11.2021  15:34    <DIR>          ..
+05.08.2021  13:27             1 299 .bash_history
+24.11.2021  13:20    <DIR>          .eclipse
+28.07.2021  14:47                93 .gitconfig
+05.08.2021  13:26                20 .lesshst
+07.07.2020  16:40    <DIR>          3D Objects
+07.07.2020  16:40    <DIR>          Contacts
+05.10.2021  17:06    <DIR>          Desktop
+06.04.2021  17:51    <DIR>          Documents
+24.11.2021  13:17    <DIR>          Downloads
+25.11.2021  15:34             1 868 example.sql
+25.11.2021  15:27               139 exercise_2.sql
+07.07.2020  16:40    <DIR>          Favorites
+24.11.2021  14:05                20 hello.sql
+07.07.2020  16:40    <DIR>          Links
+07.07.2020  16:40    <DIR>          Music
+09.08.2021  12:12    <DIR>          OneDrive
+07.07.2020  16:42    <DIR>          Pictures
+28.07.2021  14:07    <DIR>          project
+10.08.2021  13:25    <DIR>          PycharmProjects
+07.07.2020  16:40    <DIR>          Saved Games
+07.07.2020  16:42    <DIR>          Searches
+25.11.2021  14:33             1 588 shop.sql
+14.07.2020  19:27    <DIR>          Videos
+               7 файлов          5 027 байт
+              18 папок  55 812 341 760 байт свободно
+
+C:\Users\Ivan>mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 49
+Server version: 8.0.27 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE sample;
+Query OK, 1 row affected (0.11 sec)
+
+mysql> exit
+Bye
+
+C:\Users\Ivan>mysql sample < example.sql
+
+C:\Users\Ivan>mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 51
+Server version: 8.0.27 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE sample;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| users            |
++------------------+
+1 row in set (0.14 sec)
+
+mysql> exit
+Bye
+
+C:\Users\Ivan>
