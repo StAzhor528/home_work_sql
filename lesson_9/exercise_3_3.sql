@@ -1,0 +1,32 @@
+USE exercise;
+
+DELIMITER //
+DROP FUNCTION IF EXISTS FIBONACCI//
+CREATE FUNCTION FIBONACCI(`count` INT)
+RETURNS INT DETERMINISTIC
+BEGIN 
+	DECLARE `result` INT;
+	DECLARE frst INT DEFAULT 0;
+	DECLARE scnd INT DEFAULT 1;
+	DECLARE i INT DEFAULT 2;
+	IF `count` = 0 THEN
+		SET `result` = 0;
+	ELSEIF `count` = 1 THEN
+		SET `result` = 1;
+	ELSE
+		WHILE i <= `count` DO
+			SET `result` = frst + scnd; 
+			SET frst = scnd;
+			SET scnd = `result`;
+			SET i = i + 1;	
+		END WHILE;
+	END IF;
+	RETURN `result`;
+END//
+
+
+SELECT FIBONACCI(0)//
+SELECT FIBONACCI(1)//
+SELECT FIBONACCI(2)//
+SELECT FIBONACCI(09)//
+SELECT FIBONACCI(10)//
